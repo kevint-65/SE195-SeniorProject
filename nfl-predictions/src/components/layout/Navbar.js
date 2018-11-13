@@ -9,10 +9,11 @@ const Navbar = function() {
 
     <nav className="nav-wrapper grey darken-3">
       <div className = "container">
-      //link to the logo
+      {/*link to the logo*/}
         <Link to ='/' className="brand-logo">NFL-Predictions</Link>
 
-        //importing the navbar links, both for now (testing)
+
+        {/*importing the navbar links, both for now (testing)*/}
         <SignedInLinks />
         <SignedOutLinks />
       </div>

@@ -5,7 +5,7 @@ const SidebarLinks = function() {
   return (
     <div class="sidebar">
       <ul className="center">
-      //links in the sidebar
+      {/*links in the sidebar*/}
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Team Stats</Link></li>
         <li><Link to='/'>Predictor</Link></li>
