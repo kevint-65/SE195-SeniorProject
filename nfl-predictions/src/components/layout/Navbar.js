@@ -2,23 +2,34 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import { connect } from 'react-redux'
 
-const Navbar = function() {
+const Navbar = function(props) {
+  //getting auth data from props
+  const { auth } = props;
+
+  //if uid exists in auth then user is signed in
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+
   return (
     //used materialize css library for these classes
 
     <nav className="nav-wrapper grey darken-3">
       <div className = "container">
-      {/*link to the logo*/}
+        {/*link to the logo*/}
         <Link to ='/' className="brand-logo">NFL-Predictions</Link>
 
+        {/*importing the navbar link, depending on if user is signed in or signed out*/}
+        { links }
 
-        {/*importing the navbar links, both for now (testing)*/}
-        <SignedInLinks />
-        <SignedOutLinks />
       </div>
     </nav>
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+export default connect(mapStateToProps)(Navbar)

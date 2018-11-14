@@ -1,3 +1,7 @@
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +10,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-size: 100%;
+  background-position: bottom;
+  background-color: teal;
+  min-height: 100%;
+
+}
+
+
+form{
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button, form h5{
+  margin: 20px 0;
 }
 
 code {
@@ -24,18 +44,28 @@ code {
   font-size: 30px;
 }
 
+.team-container{
+  background-color: white;
+}
+
+/*moves the team table on homepage */
+.team-table{
+  padding: 20px;
+  margin-top: 60px;
+}
+
 /* unvisited link */
 a:link {
-    color: white;
+    color: black;
 }
 
 /* visited link */
 a:visited {
-    color: white;
+    color: black;
 }
 
 
 /* mouse over link */
 a:hover {
-    color: black;
+    color: blue;
 }
