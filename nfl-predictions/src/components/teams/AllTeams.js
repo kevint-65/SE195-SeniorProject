@@ -58,6 +58,6 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-      {collection: 'teams'} //specify which collection we want to sync
+      {collection: 'teams', orderBy: ['location']} //specify which collection we want to sync
     ])
   )(AllTeams)

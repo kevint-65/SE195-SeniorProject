@@ -6,10 +6,10 @@ import { connect } from 'react-redux'
 
 const Navbar = function(props) {
   //getting auth data from props
-  const { auth } = props;
+  const { auth, profile } = props;
 
-  //if uid exists in auth then user is signed in
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+  //if uid exists in auth then user is signed in, passing with it the user profile
+  const links = auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks />;
 
   return (
     //used materialize css library for these classes
@@ -29,7 +29,8 @@ const Navbar = function(props) {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 export default connect(mapStateToProps)(Navbar)
