@@ -17,6 +17,8 @@ import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
 //firebase config
 import fbConfig from './config/fbConfig'
 
+
+
 //use middleware to enhance the store with thunk functionality and extra args
 const store = createStore(rootReducer,
   compose(
@@ -26,8 +28,13 @@ const store = createStore(rootReducer,
     )
 );
 
+
+
 //makes sure we wait for firebase to make sure we are logged in before we render it to the DOM
 store.firebaseAuthIsReady.then(() => {
+
+
+
   ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
   // If you want your app to work offline and load faster, you can change

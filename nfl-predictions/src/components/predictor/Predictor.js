@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import HomeTable from './HomeTable'
 import AwayTable from './AwayTable'
-import SidebarLinks from './SidebarLinks'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
+import M from 'materialize-css';
+
 
 class Predictor extends Component {
+  componentDidMount = () => {
+      M.AutoInit();
+  }
+
   render() {
 
     const { team, auth} = this.props;
@@ -20,10 +25,6 @@ class Predictor extends Component {
     return(
         /*general home page container*/
         <div className="predictor container" class="row">
-          {/*sidebar column container*/}
-          <div class="col s2 red lighten-1 full-width">
-            <SidebarLinks />
-          </div>
 
           {/*rest of the page container*/}
           <div class="col s10 indigo lighten-5 full-width">

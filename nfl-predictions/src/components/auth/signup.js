@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
+import SignedInLinks from '../layout/SignedInLinks'
+import SignedOutLinks from '../layout/SignedOutLinks'
+import M from 'materialize-css';
+
 
 class SignUp extends Component {
   state = {
@@ -23,17 +27,25 @@ class SignUp extends Component {
     this.props.signUp(this.state)
   }
 
+  componentDidMount = () => {
+      M.AutoInit();
+  }
+
   render() {
     const { auth, authError } = this.props;
     if(auth.uid) {
       return <Redirect to='/' />
     }
+    const { profile } = this.props;
+    const links = auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks />;
+
 
     return (
+
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Sign Up</h5>
-          
+
           <div className="red-text center">
             {/*if an error exists, itll display error, else null */}
             { authError ? <p>{authError}</p> : null}
@@ -65,13 +77,15 @@ class SignUp extends Component {
 
         </form>
       </div>
+
     )
   }
 }
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    profile: state.firebase.profile
   }
 }
 const mapDispatchToProps = (dispatch) => {

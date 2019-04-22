@@ -7,13 +7,21 @@ import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import TeamSummary from './components/teams/TeamSummary'
 import AllTeams from './components/teams/AllTeams'
+import Logobar from './components/layout/Logobar'
+import Footer from './components/layout/Footer'
+// export for others scripts to use
+
 
 class App extends Component {
+
   render() {
     return (
       <BrowserRouter>
         <div className="App">
+
+          <Logobar />
           <Navbar />
+
           <Switch>
             <Route exact path='/' component={Homepage} />
             <Route path='/teams' component={AllTeams} />
@@ -22,6 +30,8 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/predictor' component={Predictor} />
           </Switch>
+
+          <Footer />
         </div>
       </BrowserRouter>
     );

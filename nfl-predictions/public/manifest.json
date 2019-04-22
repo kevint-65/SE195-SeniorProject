@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "NFL-Predictions",
+  "name": "NFL-Predictions right at your fingertips",
   "icons": [
     {
       "src": "favicon.ico",

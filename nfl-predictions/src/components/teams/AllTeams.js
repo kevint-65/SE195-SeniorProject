@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import TeamTable from './TeamTable'
-import SidebarLinks from './SidebarLinks'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
+import M from 'materialize-css';
+
 
 class AllTeams extends Component {
+  componentDidMount = () => {
+      M.AutoInit();
+  }
+  
   render() {
 
     //separate the teams data from this.props object
@@ -22,13 +27,10 @@ class AllTeams extends Component {
         /*general home page container*/
         <div className="row">
 
-          {/*sidebar column container*/}
-          <div className="col s2 red lighten-1 full-width">
-            <SidebarLinks />
-          </div>
+
 
             {/*rest of the page*/}
-          <div className="col s9">
+          <div className="col s12">
             {/*importing the team drop down table and pass teams data to the table*/}
               <div className="team-table">
                 <TeamTable teams={teams}/>
