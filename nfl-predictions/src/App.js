@@ -19,7 +19,6 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
 
-          <Logobar />
           <Navbar />
 
           <Switch>
